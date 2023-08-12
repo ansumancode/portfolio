@@ -7,7 +7,19 @@ export async function headerMenu() {
 
   export async function profileData() {
     // const profileApi = await client.fetch(`*[_type == "profile"]`);
-    const profileApi = await client.fetch(`*[_type == "profile"]`);
+    const profileApi = await client.fetch(`*[_type == "profile"]{
+      firstname,
+      lastname,
+      image,
+      address,
+      dateOfBirth,
+      designation,
+      email,
+      socialLinks,
+      "downlaodResume": button.asset->url ,
+      "label" : button.label
+      
+    }`);
     return profileApi;
   }
 
