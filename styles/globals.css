@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: #000000;
+  color: #fff;
+  position: relative;
+}
+
+h1{
+  font-family: 'Montserrat', sans-serif;
+}
+.c-font{
+  font-family: 'Montserrat', sans-serif;
+}
+li{
+  font-family: 'Quicksand', sans-serif;
+}
+p{
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 0.625rem;
+}
+a{
+  font-family: 'Quicksand', sans-serif;
+}
+h2{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.text-font-size-12px{
+  font-size: 0.75rem;
+}
