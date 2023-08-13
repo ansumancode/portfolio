@@ -1,39 +1,34 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Ignore node_modules directory
+node_modules/
 
-# dependencies
-node_modules
-yarn.lock
-package-lock.json
-/.pnp
-.pnp.js
-
-# next.js
+# Ignore build output
 .next/
-/out/
-.next\
+out/
 
-# production
-.vercel
+# Ignore environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# misc
-.DS_Store
-
-# debug
+# Ignore logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env
-.env.local
-.env.development
-.env.development.local
-.env.test.local
-.env.production
-.env.production.local
+# Ignore IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# Sanity Studio v2
-sanity/dist/
-sanity/node_modules/
-sanity/config/.checksums
-!sanity/yarn.lock
+# Ignore system and temporary files
+.DS_Store
+Thumbs.db
+
+# Ignore package-lock.json for Yarn users
+package-lock.json
+
+# Ignore yarn-error.log and yarn.lock
+yarn-error.log
+yarn.lock

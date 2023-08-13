@@ -22,7 +22,6 @@ function formatDate(dateString) {
 
 const Aside = ({ profile }) => {
   const [profileData] = profile;
-  console.log(profileData);
 
   const builder = imageUrlBuilder(client);
 
