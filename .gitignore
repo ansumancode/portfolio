@@ -1,39 +1,19 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-node_modules
-yarn.lock
-package-lock.json
-/.pnp
-.pnp.js
-
-# next.js
+# Next.js
 .next/
-/out/
-.next\
+out/
 
-# production
-.vercel
+# Dependencies
+node_modules/
 
-# misc
-.DS_Store
+# IDE/Editor specific
+.vscode/
+.idea/
 
-# debug
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env
-.env.local
-.env.development
-.env.development.local
-.env.test.local
-.env.production
-.env.production.local
-
-# Sanity Studio v2
-sanity/dist/
-sanity/node_modules/
-sanity/config/.checksums
-!sanity/yarn.lock
+# Build process
+build-manifest.json
+react-loadable-manifest.json
