@@ -32,3 +32,28 @@ h2{
 .text-font-size-12px{
   font-size: 0.75rem;
 }
+h3{
+  font-family: 'Montserrat', sans-serif;
+}
+.sub-title{
+  font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes progressAnimation {
+  0%, 100% {
+    stroke-dashoffset: 0;
+    box-shadow: 0 0 2px 0px rgba(212, 211, 211, 0.7);
+  }
+  50% {
+    stroke-dashoffset: 377;
+    box-shadow: 0 0 6px 0px rgba(255, 255, 255, 0.7);
+  }
+}
+
+.animate-progress {
+  animation: progressAnimation 4s ease-in-out infinite;
+  stroke: url(#gradient);
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: none;
+}

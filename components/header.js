@@ -9,7 +9,7 @@ const Header = ({menu}) => {
 
   return (
     <>
-    <nav className='md:container md:mx-auto md:px-40 md:pt-20 md:pb-5 py-5'>
+    <nav className='md:container md:mx-auto md:px-40 md:pt-20 md:pb-5 py-5 mx-2'>
       <ul className='flex md:justify-end sm:justify-center'>
       {
         getMenu && getMenu?.map((items, i)=>{

@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Header from "../components/header";
 import Aside from "../components/aside";
+import { memo } from "react";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -19,4 +20,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default memo(MyApp);
