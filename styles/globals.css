@@ -43,11 +43,11 @@ h3{
 @keyframes progressAnimation {
   0%, 100% {
     stroke-dashoffset: 0;
-    box-shadow: 0 0 2px 0px rgba(212, 211, 211, 0.7);
+    box-shadow: 0 0 2px 0px rgba(247, 245, 245, 0.7);
   }
   50% {
     stroke-dashoffset: 377;
-    box-shadow: 0 0 6px 0px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.7);
   }
 }
 
