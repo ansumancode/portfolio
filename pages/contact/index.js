@@ -1,9 +1,9 @@
 import { headerMenu, profileData } from "../api/api";
-import HomeComponent from "../../components/HomeComponent";
+import ContactMe from "../../components/contactMe";
 
 const contact = () => {
   return (
-    <HomeComponent />
+    <ContactMe />
   )
 }
 

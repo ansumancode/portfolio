@@ -58,3 +58,7 @@ h3{
   stroke-linecap: round;
   fill: none;
 }
+
+textarea{
+  height: 150px;
+}
