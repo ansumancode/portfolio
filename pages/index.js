@@ -9,7 +9,7 @@ export default function Home({ aboutAndInformation }) {
   
   return (
     <createDataContext.Provider value={aboutAndInformation}>
-      <HomeComponent />;
+      <HomeComponent />
     </createDataContext.Provider>
   );
 }

@@ -4,5 +4,5 @@ import { createClient } from "next-sanity";
     projectId: `${process.env.NEXT_PUBLIC_PROJECTID}`,
     dataset: `${process.env.NEXT_PUBLIC_DATASET}`,
     apiVersion: "2023-08-05",
-    useCdn: false
+    useCdn: true
   });
