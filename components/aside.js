@@ -45,7 +45,7 @@ const Aside = ({ profile }) => {
               src={builder.image(profileData.image.asset._ref).url()}
               width={500}
               height={500}
-              className="md:object-cover absolute left-0 top-0 w-full h-full"
+              className="md:object-cover absolute left-0 top-0 md:w-full md:h-full"
               alt="Profile"
               priority
             />
