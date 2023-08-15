@@ -9,7 +9,6 @@ import {
   LiaCalendar,
   LiaMapMarkerAltSolid,
   LiaMailBulkSolid,
-  LiaGithub,
 } from "react-icons/lia";
 import { parseISO, format } from "date-fns";
 import { client } from "../pages/api/client";
@@ -22,6 +21,10 @@ function formatDate(dateString) {
 }
 
 const Aside = ({ profile }) => {
+  if (!Array.isArray(profile)) {
+    return <div>Invalid menu data</div>;
+  }
+
   const [profileData] = profile;
 
   const builder = imageUrlBuilder(client);
@@ -38,16 +41,15 @@ const Aside = ({ profile }) => {
       className="md:sticky top-10 md:z-40 md:flex-2 md:w-56 md:h-screen transition-transform  sm:translate-x-0 sm:w-full"
       aria-label="Sidebar"
     >
-      <div className="h-full px-4 py-4 ">
+      <div className="h-full px-4 py-4 overflow-y-auto ">
         {profileData.image ? (
           <div className="flex flex-col items-center relative overflow-hidden md:w-full h-[10.5rem] rounded-3xl sm:w-64 w-64 my-0 mx-auto sm:my-0 sm:mx-auto ">
             <Image
               src={builder.image(profileData.image.asset._ref).url()}
               width={500}
               height={500}
-              className="md:object-cover absolute left-0 top-0 md:w-full md:h-full"
+              className="md:object-cover absolute left-0 top-0 w-full h-full"
               alt="Profile"
-              priority
             />
           </div>
         ) : null}
@@ -75,28 +77,23 @@ const Aside = ({ profile }) => {
             return (
               <React.Fragment key={i}>
                 {social.platform === "facebook" && (
-                  <Link href={social.url} className="px-2" target="_blank" aria-label="Facebook">
+                  <Link href={social.url} className="px-2" target="_blank">
                     <LiaFacebookF />
                   </Link>
                 )}
                 {social.platform === "twitter" && (
-                  <Link href={social.url} className="px-2" target="_blank" aria-label="Twitter">
+                  <Link href={social.url} className="px-2" target="_blank">
                     <LiaTwitter />
                   </Link>
                 )}
                 {social.platform === "instagram" && (
-                  <Link href={social.url} className="px-2" target="_blank" aria-label="Instagram">
+                  <Link href={social.url} className="px-2" target="_blank">
                     <LiaInstagram />
                   </Link>
                 )}
                 {social.platform === "linkedin" && (
-                  <Link href={social.url} className="px-2" target="_blank" aria-label="Linkedin">
+                  <Link href={social.url} className="px-2" target="_blank">
                     <LiaLinkedinIn />
-                  </Link>
-                )}
-                {social.platform === "github" && (
-                  <Link href={social.url} className="px-2" target="_blank" aria-label="GitHub">
-                    <LiaGithub />
                   </Link>
                 )}
               </React.Fragment>

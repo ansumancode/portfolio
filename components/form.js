@@ -29,7 +29,7 @@ const Form = () => {
     setValidationError(validateForm(formValues));
     setIsSubmit(true);
 
-    formValues.user_name !== "" && formValues.message !== ""
+    formValues?.user_name !== "" && formValues?.message !== ""
       ? 
       emailjs
           .sendForm(
@@ -43,7 +43,7 @@ const Form = () => {
               console.log(result.text);
               successMessage.style.display = "block";
               setSuccessMessageData(
-                `Success! Thank you, ${formValues.user_name}, for your kind response 🙂, Will get back to you.`
+                `Success! Thank you, ${formValues?.user_name}, for your kind response 🙂, Will get back to you.`
               );
               setFormValues({ user_name: '', message: '' });
             },
@@ -57,10 +57,10 @@ const Form = () => {
   const validateForm = (values) => {
     const error = {};
 
-    if (!values.user_name) {
+    if (!values?.user_name) {
       error.user_name = "Name is required !";
     }
-    if (!values.message) {
+    if (!values?.message) {
       error.message = "Description is required !";
     }
     return error;
@@ -76,11 +76,11 @@ const Form = () => {
             placeholder="Full Name * "
             name="user_name"
             autoComplete="off"
-            value={formValues.user_name}
+            value={formValues?.user_name}
             onChange={handelInput}
           />
           <p className="text-xs text-red-700 w-full m-0 text-end">
-            {validationError.user_name}
+            {validationError?.user_name}
           </p>
         </div>
         <div className="flex items-center border-b border-gray-500 py-2 mb-6">
@@ -98,11 +98,11 @@ const Form = () => {
             placeholder="Description *"
             name="message"
             autoComplete="off"
-            value={formValues.message}
+            value={formValues?.message}
             onChange={handelInput}
           />
           <p className="text-xs text-red-700 w-full m-0 text-end">
-            {validationError.message}
+            {validationError?.message}
           </p>
         </div>
         <div className="flex items-center py-2">

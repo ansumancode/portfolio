@@ -6,7 +6,6 @@ export async function headerMenu() {
 }
 
 export async function profileData() {
-  // const profileApi = await client.fetch(`*[_type == "profile"]`);
   const profileApi = await client.fetch(`*[_type == "profile"]{
       firstname,
       lastname,

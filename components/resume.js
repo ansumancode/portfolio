@@ -29,7 +29,7 @@ const Resume = () => {
     <div className="p-4 flex-1 ">
       <div className="p-4 border-2 border-gray-800 border-dashed rounded-lg dark:border-gray-700">
         <div className="pdf-viewer">
-          <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
+          <Document file={pdfUrl.property} onLoadSuccess={onDocumentLoadSuccess}>
             <div className="pdf-page">
               <Page key={`page_${currentPage}`} pageNumber={currentPage} />
             </div>
