@@ -77,22 +77,22 @@ const Aside = ({ profile }) => {
             return (
               <React.Fragment key={i}>
                 {social.platform === "facebook" && (
-                  <Link href={social.url} className="px-2" target="_blank">
+                  <Link href={social.url} className="px-2" target="_blank" aria-label="Social">
                     <LiaFacebookF />
                   </Link>
                 )}
                 {social.platform === "twitter" && (
-                  <Link href={social.url} className="px-2" target="_blank">
+                  <Link href={social.url} className="px-2" target="_blank" aria-label="Social">
                     <LiaTwitter />
                   </Link>
                 )}
                 {social.platform === "instagram" && (
-                  <Link href={social.url} className="px-2" target="_blank">
+                  <Link href={social.url} className="px-2" target="_blank" aria-label="Social">
                     <LiaInstagram />
                   </Link>
                 )}
                 {social.platform === "linkedin" && (
-                  <Link href={social.url} className="px-2" target="_blank">
+                  <Link href={social.url} className="px-2" target="_blank" aria-label="Social">
                     <LiaLinkedinIn />
                   </Link>
                 )}
