@@ -27,7 +27,7 @@ const Skill = () => {
                   <p className="text-xs m-0 px-1 text-gray-300">{skillSet.addSkill}</p>
                 </div>
               </div>
-              <p className="text-xs m-0 px-1 text-gray-500">{skillSet.addSkillRating}</p>
+              <p className="text-xs m-0 px-1 text-gray-300">{skillSet.addSkillRating}</p>
             </div>
           );
         })}

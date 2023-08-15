@@ -16,7 +16,7 @@ const ThreeColumnSection = () => {
         return(
         <div className="flex flex-col items-center relative overflow-hidden md:w-full h-[10.5rem] rounded-3xl sm:w-64 w-64 my-0 mx-auto sm:my-0 sm:mx-auto " key={i}>
           <Image src={builder.image(myInfo.image.asset._ref).auto('format').url()} width={50} height={50} alt="Profile" />
-          <p className="text-sm font-normal mt-5 sub-title text-gray-500 text-center">
+          <p className="text-sm font-normal mt-5 sub-title text-gray-300 text-center">
             {myInfo.addInfotitle}
           </p>
           <h3 className="text-center">{myInfo.addInfoDes}</h3>

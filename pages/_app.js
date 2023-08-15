@@ -2,13 +2,22 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Header from "../components/header";
 import Aside from "../components/aside";
-import { memo } from "react";
+import { usePathname } from "next/navigation";
 
 function MyApp({ Component, pageProps }) {
+  const urlPath = usePathname();
+
+  const [menuData] = pageProps.menu;
+
   return (
     <>
       <Head>
-        <title>Ansuman</title>
+        {menuData.items.map((urlTitle, i) => {
+          return urlPath == urlTitle.slug.current ? (
+            <title key={i}>{urlTitle.name} Ansuman</title>
+          ) : null;
+        })}
+
         <link rel="icon" type="image/x-icon" href="/fev.png" />
       </Head>
       <Header menu={pageProps.menu} />
@@ -20,4 +29,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default memo(MyApp);
+export default MyApp;

@@ -68,6 +68,9 @@ textarea{
   align-items: center;
   margin: 0 auto; /* Center the page horizontally */
 }
+.pdf-page .react-pdf__Page{
+  border-radius: 20px;
+}
 
 .pdf-page canvas {
   border: 1px solid #ccc; /* Add a border to the canvas */
@@ -75,6 +78,7 @@ textarea{
   max-width: 100%; /* Ensure the canvas fits within its container */
   width: 100% !important;
   height: auto !important;
+  border-radius: 20px;
 }
 .pdf-page .react-pdf__Page__textContent{
   display: none;
