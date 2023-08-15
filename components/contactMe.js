@@ -13,7 +13,7 @@ const ContactMe = () => {
         <div className="grid md:grid-cols-2 gap-4">
         
         <div className="flex flex-col items-center relative justify-center ">
-        <Image src="/contact.webp" width={300} height={300} className="absolute left-0 top-0 w-full h-full object-contain" alt="contact" />
+        <Image src="/contact.webp" width={300} height={300} className="absolute left-0 top-0 w-full h-full object-contain" alt="contact" priority  />
           </div>
        
         <Form />

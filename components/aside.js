@@ -47,6 +47,7 @@ const Aside = ({ profile }) => {
               height={500}
               className="md:object-cover absolute left-0 top-0 w-full h-full"
               alt="Profile"
+              priority
             />
           </div>
         ) : null}
