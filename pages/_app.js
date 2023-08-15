@@ -9,17 +9,20 @@ import { useRouter } from 'next/router';
 function MyApp({ Component, pageProps }) {
   const urlPath = usePathname();
   const router = useRouter();
-  const [menuData] = pageProps.menu;
+
   useEffect(() => {
+    // Set lang attribute on the html tag
+    document.documentElement.lang = 'en';
+
     // Pass pathname to MyDocument using a prop
     const pathname = router.pathname;
     document.documentElement.setAttribute('data-pathname', pathname);
   }, [router.pathname]);
 
-  useEffect(() => {
-    // Set lang attribute on the html tag
-    document.documentElement.lang = 'en';
-  }, []);
+  if (!Array.isArray(pageProps?.menu)) {
+    return <div>Invalid menu data</div>;
+  }
+  const [menuData] = pageProps?.menu;
 
   return (
     <>
