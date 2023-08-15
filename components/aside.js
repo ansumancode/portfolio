@@ -41,7 +41,7 @@ const Aside = ({ profile }) => {
       className="md:sticky top-10 md:z-40 md:flex-2 md:w-56 md:h-screen transition-transform  sm:translate-x-0 sm:w-full"
       aria-label="Sidebar"
     >
-      <div className="h-full px-4 py-4 overflow-y-auto ">
+      <div className="h-full px-4 py-4 ">
         {profileData.image ? (
           <div className="flex flex-col items-center relative overflow-hidden md:w-full h-[10.5rem] rounded-3xl sm:w-64 w-64 my-0 mx-auto sm:my-0 sm:mx-auto ">
             <Image

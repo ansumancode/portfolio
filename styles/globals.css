@@ -70,15 +70,17 @@ textarea{
 }
 .pdf-page .react-pdf__Page{
   border-radius: 20px;
+  background-color: transparent !important;
 }
 
 .pdf-page canvas {
   border: 1px solid #ccc; /* Add a border to the canvas */
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the canvas */
   max-width: 100%; /* Ensure the canvas fits within its container */
-  width: 100% !important;
+  width: 70% !important;
   height: auto !important;
   border-radius: 20px;
+  margin: 0 auto;
 }
 .pdf-page .react-pdf__Page__textContent{
   display: none;

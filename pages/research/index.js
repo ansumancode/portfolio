@@ -1,9 +1,9 @@
 
 import { headerMenu, profileData } from "../api/api";
-import Resume from "../../components/resume"
+import Research from "../../components/research"
 const Index = () => {
   return (
-    <Resume />
+    <Research />
   )
 }
 export async function getStaticProps() {
