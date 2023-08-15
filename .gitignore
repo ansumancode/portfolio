@@ -32,3 +32,4 @@ package-lock.json
 # Ignore yarn-error.log and yarn.lock
 yarn-error.log
 yarn.lock
+.vercel
