@@ -9,6 +9,7 @@ import {
   LiaCalendar,
   LiaMapMarkerAltSolid,
   LiaMailBulkSolid,
+  LiaGithub
 } from "react-icons/lia";
 import { parseISO, format } from "date-fns";
 import { client } from "../pages/api/client";
@@ -94,6 +95,11 @@ const Aside = ({ profile }) => {
                 {social.platform === "linkedin" && (
                   <Link href={social.url} className="px-2" target="_blank" aria-label="Social">
                     <LiaLinkedinIn />
+                  </Link>
+                )}
+                {social.platform === "github" && (
+                  <Link href={social.url} className="px-2" target="_blank" aria-label="Social">
+                    <LiaGithub />
                   </Link>
                 )}
               </React.Fragment>
