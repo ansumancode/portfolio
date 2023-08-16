@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
   }
 
   const listenToScroll = ()=>{
-    let heightToHidden = 600;
+    let heightToHidden = 200;
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     if(winScroll < heightToHidden){
       setIsVisible(true)
