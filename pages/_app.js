@@ -3,12 +3,16 @@ import Head from "next/head";
 import Header from "../components/header";
 import Aside from "../components/aside";
 import { usePathname } from "next/navigation";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import {
+  LiaArrowDownSolid,
+} from "react-icons/lia";
 
 function MyApp({ Component, pageProps }) {
   const urlPath = usePathname();
   const router = useRouter();
+  const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
     // Set lang attribute on the html tag
@@ -24,6 +28,23 @@ function MyApp({ Component, pageProps }) {
   }
   const [menuData] = pageProps?.menu;
 
+  const downFunction=()=>{
+    window.scrollTo({top:600, left:0, behavior:"smooth"})
+  }
+
+  const listenToScroll = ()=>{
+    let heightToHidden = 600;
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    if(winScroll < heightToHidden){
+      setIsVisible(true)
+    }else{
+      setIsVisible(false)
+    }
+  }
+  
+ useEffect(()=>{
+  window.addEventListener('scroll', listenToScroll)
+ }, [])
   return (
     <>
       <Head>
@@ -36,10 +57,17 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/x-icon" href="/fev.png" />
       </Head>
       <Header menu={pageProps?.menu} />
+      
       <section className="container mx-auto lg:px-40 pb-10 md:flex ">
         <Aside profile={pageProps?.profile} />
         <Component {...pageProps} />
       </section>
+      {
+        isVisible && (
+          <div onClick={downFunction} className=" animate-bounce fixed bottom-4 right-4 z-50 text-lg border-2 outline-none text-white cursor-pointer p-2 rounded-full md:hidden" title="Go to top"><LiaArrowDownSolid /></div>
+        )
+      }
+      
     </>
   );
 }
