@@ -6,6 +6,7 @@ const Form = () => {
   const inputEntry = {
     user_name: "",
     message: "",
+    user_email: ""
   };
 
   const [formValues, setFormValues] = useState(inputEntry);
@@ -29,7 +30,7 @@ const Form = () => {
     setValidationError(validateForm(formValues));
     setIsSubmit(true);
 
-    formValues?.user_name !== "" && formValues?.message !== ""
+    formValues?.user_name !== "" && formValues?.message !== "" && formValues?.user_email !== ""
       ? 
       emailjs
           .sendForm(
@@ -45,7 +46,7 @@ const Form = () => {
               setSuccessMessageData(
                 `Success! Thank you, ${formValues?.user_name}, for your kind response 🙂, Will get back to you.`
               );
-              setFormValues({ user_name: '', message: '' });
+              setFormValues({ user_name: '', message: '', user_email: '' });
             },
             (error) => {
               console.log(error.text);
@@ -62,6 +63,9 @@ const Form = () => {
     }
     if (!values?.message) {
       error.message = "Description is required !";
+    }
+    if (!values?.user_email) {
+      error.user_email = "Email is required !";
     }
     return error;
   };
@@ -90,7 +94,11 @@ const Form = () => {
             placeholder="Email"
             name="user_email"
             autoComplete="off"
+            onChange={handelInput}
           />
+          <p className="text-xs text-red-700 w-full m-0 text-end">
+            {validationError?.user_email}
+          </p>
         </div>
         <div className=" items-center border-b border-gray-500 py-2 mb-6">
           <textarea
