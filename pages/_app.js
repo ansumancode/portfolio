@@ -13,6 +13,10 @@ function MyApp({ Component, pageProps }) {
   const urlPath = usePathname();
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(true)
+   
+ useEffect(()=>{
+  window.addEventListener('scroll', listenToScroll)
+ }, [])
 
   useEffect(() => {
     // Set lang attribute on the html tag
@@ -41,10 +45,7 @@ function MyApp({ Component, pageProps }) {
       setIsVisible(false)
     }
   }
-  
- useEffect(()=>{
-  window.addEventListener('scroll', listenToScroll)
- }, [])
+ 
   return (
     <>
       <Head>
