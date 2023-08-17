@@ -64,7 +64,7 @@ const Category = ({ researchData, categoryMenu }) => {
                         </Link>
                       ) : null;
                     })
-                  : "";
+                  : null;
               });
             })}
           </div>
