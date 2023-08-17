@@ -25,3 +25,19 @@ export async function profileData() {
   const aboutMe = await client.fetch(`*[_type == "page"]`);
   return aboutMe;
  }
+
+ export async function category(){
+  const categoryData = await client.fetch(`*[_type == "category"]`);
+  return categoryData;
+ }
+ export async function categoryResearch(){
+  const categoryResearchData = await client.fetch(`*[_type == "research"]{
+    _id,
+    title,
+    slug,
+    image,
+    categories,
+    content
+  }`);
+  return categoryResearchData;
+ }

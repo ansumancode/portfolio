@@ -1,18 +1,21 @@
-
-import { headerMenu, profileData } from "../api/api";
+import { headerMenu, profileData, category } from "../api/api";
 import Research from "../../components/research"
-const Index = () => {
+
+const Index = ({categoryMenu, researchData}) => {
+  
   return (
-    <Research />
+    <Research categoryMenu={categoryMenu} researchData={researchData}  />
   )
 }
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const menu = await headerMenu();
     const profile = await profileData();
+    const categoryMenu = await category();
     return {
       props: {
         menu,
         profile,
+        categoryMenu,
       },
     };
   }
