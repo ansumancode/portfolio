@@ -44,7 +44,7 @@ const Aside = ({ profile }) => {
     >
       <div className="h-full px-4 py-4 ">
         {profileData.image ? (
-          <div className="flex flex-col items-center relative overflow-hidden md:w-full h-[10.5rem] rounded-3xl sm:w-64 w-64 my-0 mx-auto sm:my-0 sm:mx-auto ">
+          <div className="flex flex-col items-center relative overflow-hidden md:w-full md:h-[10.5rem] h-[15.5rem] rounded-3xl sm:w-64 w-64 my-0 mx-auto sm:my-0 sm:mx-auto ">
             <Image
               src={builder.image(profileData.image.asset._ref).url()}
               width={500}
