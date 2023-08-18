@@ -20,50 +20,60 @@ const Category = ({ researchData, categoryMenu }) => {
             {researchData.map((data) => {
               return categoryMenu?.map((categorySlug) => {
                 return categorySlug?.slug?.current == router.query.category
-                  ? data.categories.map((dataforCatId, i) => {
-                      return categorySlug?._id == dataforCatId?._ref ? (
-                        <Link
-                          href={`/research/${categoryChangeUrl}/${data?.slug?.current}`}
-                          key={i}
-                        >
-                          <div className="border-2 border-gray-900 rounded-2xl overflow-hidden cursor-pointer hover:skew-y-2">
-                            <div className="flex flex-col items-center relative overflow-hidden md:w-full h-[10.5rem]  sm:w-64 w-full my-0 mx-auto sm:my-0 sm:mx-auto ">
-                              <Image
-                                src={builder.image(data?.image?.asset?._ref).url()}
-                                width={500}
-                                height={500}
-                                className="md:object-cover absolute left-0 top-0 md:w-full md:h-full"
-                                alt="Profile"
-                              />
-                            </div>
-                            <div className="p-4">
-                              <p className="m-0">{data.title}</p>
-                              <article className="m-0 text-gray-400 text-xs">
-                                <PortableText
-                                  content={data?.content}
-                                  serializers={{
-                                    normal: (props) => {
-                                      const maxWords = 20; // Adjust as needed
-                                      const words =
-                                        props.children[0].split(" ");
-                                      const truncatedText = words
-                                        .slice(0, maxWords)
-                                        .join(" ");
-
-                                      return (
-                                        <p className="text-xs">
-                                          {truncatedText}...
-                                        </p>
-                                      );
-                                    },
-                                  }}
+                  ? data?.categories &&
+                      data?.categories.map((dataforCatId, i) => {
+                        return categorySlug?._id == dataforCatId?._ref ? (
+                          <Link
+                            href={`/research/${categoryChangeUrl}/${data?.slug?.current}`}
+                            key={i}
+                          >
+                            <div className="border-2 border-gray-900 rounded-2xl overflow-hidden cursor-pointer hover:skew-y-2">
+                              <div className="flex flex-col items-center relative overflow-hidden md:w-full h-[10.5rem]  sm:w-64 w-full my-0 mx-auto sm:my-0 sm:mx-auto ">
+                                <Image
+                                  src={
+                                    data?.image?.asset?._ref &&
+                                    builder
+                                      .image(data?.image?.asset?._ref)
+                                      .url()
+                                  }
+                                  width={500}
+                                  height={500}
+                                  className="md:object-cover absolute left-0 top-0 md:w-full md:h-full"
+                                  alt="Profile"
                                 />
-                              </article>
+                              </div>
+                              <div className="p-4">
+                                <p className="m-0">{data.title}</p>
+                                <article className="m-0 text-gray-400 text-xs">
+                                  <PortableText
+                                    content={data?.content}
+                                    serializers={{
+                                      normal: (props) => {
+                                        const maxWords = 15; // Adjust as needed
+                                        const words =
+                                          props.children[0].split(" ");
+                                        let truncatedText = words
+                                          .slice(0, maxWords)
+                                          .join(" ");
+
+                                        if (words.length > maxWords) {
+                                          truncatedText += " ...";
+                                        }
+
+                                        return (
+                                          <p className="text-xs">
+                                            {truncatedText}
+                                          </p>
+                                        );
+                                      },
+                                    }}
+                                  />
+                                </article>
+                              </div>
                             </div>
-                          </div>
-                        </Link>
-                      ) : null;
-                    })
+                          </Link>
+                        ) : null;
+                      })
                   : null;
               });
             })}

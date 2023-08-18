@@ -12,6 +12,7 @@
     "@emailjs/browser": "^3.11.0",
     "@sanity/image-url": "^1.0.2",
     "date-fns": "^2.30.0",
+    "disqus-react": "^1.1.5",
     "next": "13.4.12",
     "next-sanity": "^5.1.7",
     "pdf-lib": "^1.17.1",
