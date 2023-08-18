@@ -14,6 +14,7 @@ import {
 import { parseISO, format } from "date-fns";
 import { client } from "../pages/api/client";
 import imageUrlBuilder from "@sanity/image-url";
+import { useRouter } from "next/router";
 
 function formatDate(dateString) {
   const date = parseISO(dateString);
@@ -36,10 +37,10 @@ const Aside = ({ profile }) => {
     link.download = 'Ansuman.pdf'; // Specify the downloaded file name
     link.click();
   };
-
+  const router = useRouter()
   return (
     <aside
-      className="md:sticky top-10 md:z-40 md:flex-2 md:w-56 md:h-screen transition-transform  sm:translate-x-0 sm:w-full"
+      className={`md:sticky top-10 md:z-40 md:flex-2 md:w-56 md:h-screen transition-transform  sm:translate-x-0 sm:w-full  ${router.query.category? "hidden md:block" : "block md:block"} `}
       aria-label="Sidebar"
     >
       <div className="h-full px-4 py-4 ">

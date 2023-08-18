@@ -20,8 +20,8 @@ const Index = ({ researchData }) => {
   const tooltiptext = "Back";
   return (
     <div className="p-4 flex-1 ">
-      <div className="p-4 border-2 border-gray-800 border-dashed rounded-lg dark:border-gray-700 md:relative">
-        <div className="tooltip md:m-5 m-8">
+      <div className="p-4 border-2 border-gray-800 border-dashed rounded-lg dark:border-gray-700 md:relative relative">
+        <div className="tooltip md:m-5 m-1 z-10">
           <Link href={`/research/${router.query.category}`}>
             <LiaStepBackwardSolid />
           </Link>
