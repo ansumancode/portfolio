@@ -20,8 +20,8 @@ const Index = ({ researchData }) => {
   const tooltiptext = "Back";
   return (
     <div className="p-4 flex-1 ">
-      <div className="p-4 border-2 border-gray-800 border-dashed rounded-lg dark:border-gray-700 relative">
-        <div className="tooltip">
+      <div className="p-4 border-2 border-gray-800 border-dashed rounded-lg dark:border-gray-700 md:relative">
+        <div className="tooltip md:m-5 m-8">
           <Link href={`/research/${router.query.category}`}>
             <LiaStepBackwardSolid />
           </Link>
@@ -31,7 +31,7 @@ const Index = ({ researchData }) => {
         {researchData?.map((deatilCintent, i) => {
           return deatilCintent?.slug?.current == changeUrl ? (
             <div className="pdf-viewer" key={i}>
-              <div className="flex flex-col items-center relative overflow-hidden md:w-4/5 h-[20.5rem] rounded-xl sm:w-64 w-64 my-0 mx-auto sm:my-0 sm:mx-auto ">
+              <div className="flex flex-col items-center relative overflow-hidden md:w-4/5 h-[20.5rem] rounded-xl  w-full my-0 mx-auto sm:my-0 sm:mx-auto ">
                 <Image
                   src={
                     deatilCintent?.image?.asset?._ref &&
@@ -39,7 +39,7 @@ const Index = ({ researchData }) => {
                   }
                   width={800}
                   height={800}
-                  className="md:object-cover absolute left-0 top-0 md:w-full md:h-full"
+                  className="md:object-cover absolute left-0 top-0 md:w-full h-full"
                   alt="Profile"
                 />
               </div>

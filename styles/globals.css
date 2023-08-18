@@ -68,7 +68,6 @@ textarea{
   top: 0;
   left: 0;
   cursor: pointer;
-  margin: 5px;
 }
 .tooltip .tooltiptext {
   visibility: hidden;
