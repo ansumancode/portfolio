@@ -23,6 +23,7 @@ function formatDate(dateString) {
 }
 
 const Aside = ({ profile }) => {
+  const router = useRouter()
   if (!Array.isArray(profile)) {
     return <div>Invalid menu data</div>;
   }
@@ -37,7 +38,7 @@ const Aside = ({ profile }) => {
     link.download = 'Ansuman.pdf'; // Specify the downloaded file name
     link.click();
   };
-  const router = useRouter()
+  
   return (
     <aside
       className={`md:sticky top-10 md:z-40 md:flex-2 md:w-56 md:h-screen transition-transform  sm:translate-x-0 sm:w-full  ${router.query.category? "hidden md:block" : "block md:block"} `}
