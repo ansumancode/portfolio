@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { memo } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../pages/api/client";
-import PortableText from "react-portable-text";
+// import PortableText from "react-portable-text";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -18,6 +18,13 @@ const Category = ({ researchData, categoryMenu }) => {
         <div className="pdf-viewer">
           <div className="grid md:grid-cols-3 gap-4 ">
             {researchData.map((data) => {
+              const maxWords = 15; // Adjust as needed
+              const words = data.content[0].children[0].text && data.content[0].children[0].text.split(" ");
+              let truncatedText = words.slice(0, maxWords).join(" ");
+
+              if (words.length > maxWords) {
+                truncatedText += " ...";
+              }
               return categoryMenu?.map((categorySlug) => {
                 return categorySlug?.slug?.current == router.query.category
                   ? data?.categories &&
@@ -45,29 +52,7 @@ const Category = ({ researchData, categoryMenu }) => {
                               <div className="p-4">
                                 <p className="m-0">{data.title}</p>
                                 <article className="m-0 text-gray-400 text-xs">
-                                  <PortableText
-                                    content={data?.content}
-                                    serializers={{
-                                      normal: (props) => {
-                                        const maxWords = 15; // Adjust as needed
-                                        const words =
-                                          props.children[0].split(" ");
-                                        let truncatedText = words
-                                          .slice(0, maxWords)
-                                          .join(" ");
-
-                                        if (words.length > maxWords) {
-                                          truncatedText += " ...";
-                                        }
-
-                                        return (
-                                          <p className="text-xs">
-                                            {truncatedText}
-                                          </p>
-                                        );
-                                      },
-                                    }}
-                                  />
+                                  <p className="text-xs">{truncatedText}</p>
                                 </article>
                               </div>
                             </div>

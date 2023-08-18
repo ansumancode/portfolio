@@ -4,21 +4,30 @@ import {
   categoryResearch,
   category,
 } from "../../api/api";
+import { LiaStepBackwardSolid } from "react-icons/lia";
 import { useRouter } from "next/router";
 import { client } from "../../../pages/api/client";
 import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
 import PortableText from "react-portable-text";
 import CommentsSection from "../../../components/commentFeature";
-
+import Link from "next/link";
 
 const Index = ({ researchData }) => {
   const router = useRouter();
   const changeUrl = router.query.innerPage;
   const builder = imageUrlBuilder(client);
+  const tooltiptext = "Back";
   return (
     <div className="p-4 flex-1 ">
-      <div className="p-4 border-2 border-gray-800 border-dashed rounded-lg dark:border-gray-700">
+      <div className="p-4 border-2 border-gray-800 border-dashed rounded-lg dark:border-gray-700 relative">
+        <div className="tooltip">
+          <Link href={`/research/${router.query.category}`}>
+            <LiaStepBackwardSolid />
+          </Link>
+          <span className="tooltiptext">{tooltiptext}</span>
+        </div>
+
         {researchData?.map((deatilCintent, i) => {
           return deatilCintent?.slug?.current == changeUrl ? (
             <div className="pdf-viewer" key={i}>
@@ -39,9 +48,9 @@ const Index = ({ researchData }) => {
                 <PortableText
                   content={deatilCintent?.content}
                   serializers={{
-                    normal: (props) => <p className="text-xs" {...props} />,
+                    normal: (props) => <p className="text-sm m-1" {...props} />,
                     myCodeField: (props) => (
-                      <pre className="bg-gray-800 p-4 rounded-lg my-3">
+                      <pre className="bg-gray-800 p-4 rounded-lg my-8">
                         <code className="text-white text-sm">{props.code}</code>
                       </pre>
                     ),
@@ -49,13 +58,15 @@ const Index = ({ researchData }) => {
                 />
               </article>
               <hr className="my-10 border-1 border-gray-800 border-dashed" />
-              <CommentsSection postId={deatilCintent?._id} postTitle={deatilCintent?.title} router={router} />
+              <CommentsSection
+                postId={deatilCintent?._id}
+                postTitle={deatilCintent?.title}
+                router={router}
+              />
             </div>
-            
           ) : null;
         })}
       </div>
-      
     </div>
   );
 };
