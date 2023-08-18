@@ -19,7 +19,7 @@ const FullContent = () => {
         <PortableText
           content={data?.content}
           serializers={{
-            normal: (props) => <p className="text-xs" {...props} />,
+            normal: (props) => <p className="text-sm" {...props} />,
           }}
         />
       </article>
