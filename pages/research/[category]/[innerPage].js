@@ -39,7 +39,7 @@ const Index = ({ researchData }) => {
                   }
                   width={800}
                   height={800}
-                  className="md:object-cover absolute left-0 top-0 md:w-full h-full"
+                  className="object-cover absolute left-0 top-0 md:w-full h-full"
                   alt="Profile"
                 />
               </div>
