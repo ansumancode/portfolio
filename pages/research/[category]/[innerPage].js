@@ -50,7 +50,7 @@ const Index = ({ researchData }) => {
                   serializers={{
                     normal: (props) => <p className="text-sm m-1" {...props} />,
                     myCodeField: (props) => (
-                      <pre className="bg-gray-800 p-4 rounded-lg my-8">
+                      <pre className="bg-gray-800 p-4 rounded-lg my-8 overflow-x-scroll">
                         <code className="text-white text-sm">{props.code}</code>
                       </pre>
                     ),
